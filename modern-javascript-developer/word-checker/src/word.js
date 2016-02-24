@@ -31,3 +31,24 @@ function verifyAlphaNumeric(string) {
   return true;
   
 };
+
+$("#button").on("click", function() {
+  var string = $("#textarea").val();
+  console.log(checkWordCount(string));
+  if (checkWordCount(string) == true &&
+  duplicateCheck(string) == true &&
+  verifyAlphaNumeric(string) == true) {
+    console.log("good job!");
+    $("#feedback").text("good job!");
+  } else {
+    console.log("try again");
+    $("#feedback").text("try again");
+  }
+})
+
+
+
+
+
+
+
