@@ -1,3 +1,5 @@
 jasmine-2.4.1
 node_modules
 MIT.LICENSE
+bower_components
+.ds_store

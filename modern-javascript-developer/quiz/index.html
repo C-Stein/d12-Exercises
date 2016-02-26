@@ -4,6 +4,7 @@
 <head>
   <meta charset="utf-8">
   <title>Nashville Software School</title>
+  <link rel="stylesheet" type="text/css" href="quiz.css">
 </head>
 
 <body>
@@ -11,7 +12,35 @@
   <header>
     <h1>My awesome MJD Quiz</h1>
   </header>
+  
+  <h2 id="player1specs">Select player one robot type</h2>
+  <h2 id="player2specs" class="hidden">Select player two robot type</h2>
+  <div id="robotTypes">
+    <button class="robotType">Drone</button>
+    <button class="robotType">Bipedal</button>
+    <button class="robotType">ATV</button>
+  </div>
 
+  <div id="weapons" class="hidden">
+    <button class="weapon" id="weapon1">weapon1</button>
+    <button class="weapon" id="weapon2">weapon2</button>
+    <button class="weapon" id="weapon3">weapon3</button>
+    <button class="weapon" id="weapon4">weapon4</button>
+    <button class="weapon" id="weapon5">weapon5</button>
+    <button class="weapon" id="weapon6">weapon6</button>
+  </div>
+
+    <div id="modifications" class="hidden">
+    <button class="modification" id="modification1">modification1</button>
+    <button class="modification" id="modification2">modification2</button>
+    <button class="modification" id="modification3">modification3</button>
+    <button class="modification" id="modification4">modification4</button>
+    <button class="modification" id="modification5">modification5</button>
+    <button class="modification" id="modification6">modification6</button>
+  </div>
+
+  <button id="confirmPlayerOne" class="hidden">Confirm These Selections</button>
+  <button id="confirmPlayerTwo" class="hidden">Confirm These Selections</button>
 
   <footer>
     &copy; 2016 me
