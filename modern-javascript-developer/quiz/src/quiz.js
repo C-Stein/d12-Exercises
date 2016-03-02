@@ -74,48 +74,83 @@ function Modification() {
 }
 
 function BattleShield () {
-  this.evasion = .8;
+  this.evasion = 0.8;
   this.damage = 1;
   this.protection = 1.5;
 }
 BattleShield.prototype = new Modification();
 
 function Spikes () {
-  this.evasion = .8;
+  this.evasion = 0.8;
   this.damage = 1;
   this.protection = 1.5;
 }
 Spikes.prototype = new Modification();
 
 function Sparkles () {
-  this.evasion = .8;
+  this.evasion = 0.8;
   this.damage = 1;
   this.protection = 1.5;
 }
 Sparkles.prototype = new Modification();
 
 function Cloak () {
-  this.evasion = .8;
+  this.evasion = 0.8;
   this.damage = 1;
   this.protection = 1.5;
 }
 Cloak.prototype = new Modification();
 
 function Tiara () {
-  this.evasion = .8;
+  this.evasion = 0.8;
   this.damage = 1;
   this.protection = 1.5;
 }
 Tiara.prototype = new Modification();
 
 function Armor () {
-  this.evasion = .8;
+  this.evasion = 0.8;
   this.damage = 1;
   this.protection = 1.5;
 }
 Armor.prototype = new Modification();
 
 ///Building Weapons
+function Weapon() {
+
+}
+
+function Spoon() {
+  this.damage = 5 - 20;
+}
+Spoon.prototype = new Weapon();
+
+function Wand() {
+  this.damage = 5 - 20;
+}
+Wand.prototype = new Weapon();
+
+function LightSaber() {
+  this.damage = 5 - 20;
+}
+LightSaber.prototype = new Weapon();
+
+function Scimitar() {
+  this.damage = 5 - 20;
+}
+Scimitar.prototype = new Weapon();
+
+function NailClippers() {
+  this.damage = 5 - 20;
+}
+NailClippers.prototype = new Weapon();
+
+function ProtonPack() {
+  this.damage = 5 - 20;
+}
+ProtonPack.prototype = new Weapon();
+
+///Build Players
 
 function buildPlayer1() {
   switch (player1RobotType) {
@@ -140,7 +175,6 @@ function buildPlayer1() {
 
   switch (player1Modification) {
     case "BattleShield":
-      console.log("you picked BattleShield");
       player1Robot.modification = new BattleShield();
       break;
     case "Spikes":
@@ -159,12 +193,94 @@ function buildPlayer1() {
       player1Robot.modification = new Armor();
       break;
   }
-  player1Robot.weapon = "spoon";
+
+  switch (player1Weapon) {
+    case "Spoon":
+      player1Robot.weapon = new Spoon();
+      break;
+    case "Wand":
+      player1Robot.weapon = new Wand();
+      break;
+    case "LightSaber":
+      player1Robot.weapon = new LightSaber();
+      break;
+    case "Scimitar":
+      player1Robot.weapon = new Scimitar();
+      break;
+    case "NailClippers":
+      player1Robot.weapon = new NailClippers();
+      break;
+    case "ProtonPack":
+      player1Robot.weapon = new ProtonPack();
+      break;
+  }
+
   console.log("player1Robot", player1Robot);
 }
 
 function buildPlayer2() {
-  console.log("player2Robot built");
+  switch (player2RobotType) {
+    case "AngryBird":
+      player2Robot = new AngryBird();
+      break;
+    case "Pegasus":
+      player2Robot = new Pegasus();
+      break;
+    case "Voltron":
+      player2Robot = new Voltron();
+      break;
+    case "Cylon":
+      player2Robot = new Cylon();
+      break;
+    case "Warthog":
+      player2Robot = new Warthog();
+      break;
+    case "KITT":
+      player2Robot = new KITT();
+  }
+
+  switch (player2Modification) {
+    case "BattleShield":
+      player2Robot.modification = new BattleShield();
+      break;
+    case "Spikes":
+      player2Robot.modification = new Spikes();
+      break;
+    case "Sparkles":
+      player2Robot.modification = new Sparkles();
+      break;
+    case "Cloak":
+      player2Robot.modification = new Cloak();
+      break;
+    case "Tiara":
+      player2Robot.modification = new Tiara();
+      break;
+    case "Armor":
+      player2Robot.modification = new Armor();
+      break;
+  }
+
+  switch (player2Weapon) {
+    case "Spoon":
+      player2Robot.weapon = new Spoon();
+      break;
+    case "Wand":
+      player2Robot.weapon = new Wand();
+      break;
+    case "LightSaber":
+      player2Robot.weapon = new LightSaber();
+      break;
+    case "Scimitar":
+      player2Robot.weapon = new Scimitar();
+      break;
+    case "NailClippers":
+      player2Robot.weapon = new NailClippers();
+      break;
+    case "ProtonPack":
+      player2Robot.weapon = new ProtonPack();
+      break;
+  }
+  console.log("player2Robot", player2Robot);
 }
 
 
