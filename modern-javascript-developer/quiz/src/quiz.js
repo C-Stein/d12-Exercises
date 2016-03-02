@@ -9,6 +9,10 @@ console.log("Javascript!");
 // Each modification should provide some combination of the following benefits - increased protection, increased damage, or evasion capability (ability to avoid some attacks).
 // Define the range of damage that each weapon can do.
 
+function randomRange(a, b) {
+  return Math.floor(Math.random() * (b - a) + a);
+}
+
 function Robot() {
   this.modification = "";
   this.weapon = "";
@@ -17,20 +21,20 @@ function Robot() {
 
 ///Building Drones///
 function Drone() {
-  this.health = 100; //(use Math.random());
+  this.health = randomRange(80, 120);
 }
 
 Drone.prototype = new Robot();
 
 function AngryBird() {
-  this.health = 100;
+  this.health = randomRange(80, 120);;
   this.modification = "";
 }
 
 AngryBird.prototype = new Drone();
 
 function Pegasus() {
-  this.health = 100;
+  this.health = randomRange(80, 120);;
 }
 
 Pegasus.prototype = new Drone();
@@ -42,12 +46,12 @@ function Bipedal() {
 Bipedal.prototype = new Robot();
 
 function Voltron() {
-  this.health = 100;
+  this.health = randomRange(80, 120);;
 }
 Voltron.prototype = new Bipedal();
 
 function Cylon () {
-  this.health = 100;
+  this.health = randomRange(80, 120);;
 }
 Cylon.prototype = new Bipedal();
 
@@ -59,12 +63,12 @@ function ATV() {
 ATV.prototype = new Robot();
 
 function Warthog() {
-
+  this.health = randomRange(80, 120);;
 }
 Warthog.prototype = new ATV();
 
 function KITT() {
-
+  this.health = randomRange(80, 120);;
 }
 KITT.prototype = new ATV();
 
@@ -121,32 +125,32 @@ function Weapon() {
 }
 
 function Spoon() {
-  this.damage = 5 - 20;
+  this.damage = randomRange(5, 20);
 }
 Spoon.prototype = new Weapon();
 
 function Wand() {
-  this.damage = 5 - 20;
+  this.damage = randomRange(5, 20);
 }
 Wand.prototype = new Weapon();
 
 function LightSaber() {
-  this.damage = 5 - 20;
+  this.damage = randomRange(5, 20);
 }
 LightSaber.prototype = new Weapon();
 
 function Scimitar() {
-  this.damage = 5 - 20;
+  this.damage = randomRange(5, 20);
 }
 Scimitar.prototype = new Weapon();
 
 function NailClippers() {
-  this.damage = 5 - 20;
+  this.damage = randomRange(5, 20);
 }
 NailClippers.prototype = new Weapon();
 
 function ProtonPack() {
-  this.damage = 5 - 20;
+  this.damage = randomRange(5, 20);
 }
 ProtonPack.prototype = new Weapon();
 
