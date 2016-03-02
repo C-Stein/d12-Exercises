@@ -10,110 +10,166 @@ console.log("Javascript!");
 // Define the range of damage that each weapon can do.
 
 function Robot() {
-  this.modification1 = true;
-  this.modification2 = true;
-  this.modification3 = true;
-  this.modification4 = true;
-  this.modification5 = true;
-  this.modification6 = true;
-  this.weapon1 = true;
-  this.weapon2 = true;
-  this.weapon3 = true;
-  this.weapon4 = true;
-  this.weapon5 = true;
-  this.weapon6 = true;
+  this.modification = "";
+  this.weapon = "";
 }
 
+
+///Building Drones///
 function Drone() {
-  this.delivery = true;
-  this.camera = true;
-  this.health = 50 - 80; //(use Math.random());
+  this.health = 100; //(use Math.random());
 }
 
 Drone.prototype = new Robot();
 
-let Bipedal = new Robot();
-let ATV = new Robot();
-
-let player1RobotType;
-let player1Weapon;
-let player1Modification;
-let player2RobotType;
-let player2Weapon;
-let player2Modification;
-let player2 = false;
-
-function selectRobotType(e) {
-  $(".robotType").removeClass("selected");
-  e.toggleClass("selected");
-  console.log("robotType", e.text());
-  $("#weapons").removeClass("hidden");
-  $(".weapon").removeClass("selected");
-  return e.text();
+function AngryBird() {
+  this.health = 100;
+  this.modification = "";
 }
 
-function selectWeapon(e) {
-  $(".weapon").removeClass("selected");
-  e.toggleClass("selected");
-  console.log("weapon", e.text());
-  $("#modifications").removeClass("hidden");
-  $(".modification").removeClass("selected");
-  return e.text();
+AngryBird.prototype = new Drone();
+
+function Pegasus() {
+  this.health = 100;
 }
 
-function selectModification(e, playerModification) {
-    $(".modification").removeClass("selected");
-  e.toggleClass("selected");
-  console.log("modification", e.text());
-  return e.text();
+Pegasus.prototype = new Drone();
+
+///Building Bipedals///
+function Bipedal() {
+
+}
+Bipedal.prototype = new Robot();
+
+function Voltron() {
+  this.health = 100;
+}
+Voltron.prototype = new Bipedal();
+
+function Cylon () {
+  this.health = 100;
+}
+Cylon.prototype = new Bipedal();
+
+
+///Building ATVs///
+function ATV() {
+
+}
+ATV.prototype = new Robot();
+
+function Warthog() {
+
+}
+Warthog.prototype = new ATV();
+
+function KITT() {
+
+}
+KITT.prototype = new ATV();
+
+///Building Modifications///
+function Modification() {
+
 }
 
-$(".robotType").click(function() {
-  let e = $(this);
-  if(player2 == false) {
-    player1RobotType = selectRobotType(e)
-  } else {
-    player2RobotType = selectRobotType(e)
+function BattleShield () {
+  this.evasion = .8;
+  this.damage = 1;
+  this.protection = 1.5;
+}
+BattleShield.prototype = new Modification();
+
+function Spikes () {
+  this.evasion = .8;
+  this.damage = 1;
+  this.protection = 1.5;
+}
+Spikes.prototype = new Modification();
+
+function Sparkles () {
+  this.evasion = .8;
+  this.damage = 1;
+  this.protection = 1.5;
+}
+Sparkles.prototype = new Modification();
+
+function Cloak () {
+  this.evasion = .8;
+  this.damage = 1;
+  this.protection = 1.5;
+}
+Cloak.prototype = new Modification();
+
+function Tiara () {
+  this.evasion = .8;
+  this.damage = 1;
+  this.protection = 1.5;
+}
+Tiara.prototype = new Modification();
+
+function Armor () {
+  this.evasion = .8;
+  this.damage = 1;
+  this.protection = 1.5;
+}
+Armor.prototype = new Modification();
+
+///Building Weapons
+
+function buildPlayer1() {
+  switch (player1RobotType) {
+    case "AngryBird":
+      player1Robot = new AngryBird();
+      break;
+    case "Pegasus":
+      player1Robot = new Pegasus();
+      break;
+    case "Voltron":
+      player1Robot = new Voltron();
+      break;
+    case "Cylon":
+      player1Robot = new Cylon();
+      break;
+    case "Warthog":
+      player1Robot = new Warthog();
+      break;
+    case "KITT":
+      player1Robot = new KITT();
   }
-});
 
-$(".weapon").click(function() {
-  let e = $(this);
-  if(player2 == false) {
-    player1Weapon = selectWeapon(e)
-  } else {
-    player2Weapon = selectWeapon(e)
+  switch (player1Modification) {
+    case "BattleShield":
+      console.log("you picked BattleShield");
+      player1Robot.modification = new BattleShield();
+      break;
+    case "Spikes":
+      player1Robot.modification = new Spikes();
+      break;
+    case "Sparkles":
+      player1Robot.modification = new Sparkles();
+      break;
+    case "Cloak":
+      player1Robot.modification = new Cloak();
+      break;
+    case "Tiara":
+      player1Robot.modification = new Tiara();
+      break;
+    case "Armor":
+      player1Robot.modification = new Armor();
+      break;
   }
-})
+  player1Robot.weapon = "spoon";
+  console.log("player1Robot", player1Robot);
+}
 
-$(".modification").click(function() {
-  let e = $(this);
-  if(player2 == false) {
-    player1Modification = selectModification(e)
-    $("#confirmPlayerOne").removeClass("hidden");
-  } else {
-    player2Modification = selectModification(e)
-    $("#confirmPlayerTwo").removeClass("hidden");
-  }
-})
+function buildPlayer2() {
+  console.log("player2Robot built");
+}
 
-//little extra: add a "name your robot" field
 
-$("#confirmPlayerOne").click(function() {
-  $("#robotTypes, #weapons, #modifications, #confirmPlayerOne").addClass("hidden");
-  $("#player1specs")
-  .text("Player One selected a " + player1RobotType + " with " + player1Modification + " and a " + player1Weapon + ".");
-  $("#player2specs").removeClass("hidden");
-  player2 = true;
-  $("#robotTypes").removeClass("hidden");
-  $(".robotType").removeClass("selected");
-})
 
-$("#confirmPlayerTwo").click(function() {
-  $("#robotTypes, #weapons, #modifications, #confirmPlayerTwo").addClass("hidden");
-  $("#player2specs")
-  .text("Player Two selected a " + player2RobotType + " with " + player2Modification + " and a " + player2Weapon + ".");
-})
+
 
 
 
