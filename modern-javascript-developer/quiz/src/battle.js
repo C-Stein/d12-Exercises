@@ -35,24 +35,24 @@ function battleRound(attacker, defender) {
 function battle() {
   let player1Health = player1Robot.health;
   let player2Health = player2Robot.health;
-  $("#output").append("<p> Player 1 Starting Health: " + player1Health + "</p>");
-  $("#output").append("<p> Player 2 Starting Health: " + player2Health + "</p>");
+  $("#output").append(`<p> Player 1 Starting Health: ${player1Health}</p>`);
+  $("#output").append(`<p> Player 2 Starting Health: ${player2Health}</p>`);
   let attacker = coinToss();
   let round = 1;
   function attack() {
-    $("#output").append("<h2>Round " + round + "</h2>")
+    $("#output").append(`<h2>Round ${round}</h2>`)
     if (attacker == 1) {
       let damage = battleRound(player1Robot, player2Robot);
       player2Health = player2Health - damage;
-      $("#output").append("<p>player 1 did " + damage + " damage</p>");
+      $("#output").append(`<p>player 1 did ${damage} damage</p>`);
       attacker = 2;
     } else {
       let damage = battleRound(player2Robot, player1Robot);
       player1Health = player1Health - damage;
-      $("#output").append("<p>player 2 did " + damage + " damage</p>");
+      $("#output").append(`<p>player 2 did ${damage} damage</p>`);
       attacker = 1;
     }
-    $("#output").append("<p> Player 1 Health: " + player1Health + " and Player 2 Health: " + player2Health + "</p>");
+    $("#output").append(`<p> Player 1 Health: ${player1Health} and Player 2 Health: ${player2Health}</p>`);
     round++;
   }
   /////////
