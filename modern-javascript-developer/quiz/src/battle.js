@@ -24,7 +24,7 @@ function battleRound(attacker, defender) {
   if (evasion(defender.modification.evasion) == true ) {
     //display defender has evaded attack!
     console.log("Evaded attack!");
-    $("#output").append("<p>defender evaded attack!</p>");
+    $("#output").append("<p>Defender evaded attack!</p>");
     return 0;
   }
   actualDamage = Math.round(actualDamage / defender.modification.protection);
@@ -58,7 +58,7 @@ function battle() {
   /////////
   attack();
   /////////
-  $("#roundButton").click(function() {
+  $("#roundButton").click(() => {
     attack();
     if (player1Health <= 0 || player2Health <= 0) {
       $("#roundButton").addClass('hidden');
