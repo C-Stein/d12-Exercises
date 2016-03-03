@@ -81,6 +81,17 @@ $("#confirmPlayerTwo").click(function() {
   $("#robotTypes, #weapons, #modifications, #confirmPlayerTwo").addClass("hidden");
   $("#player2specs")
   .text("Player Two selected a " + player2RobotType + " with " + player2Modification + " and a " + player2Weapon + ".");
-  buildPlayer2()
-  battleRound(player1Robot, player2Robot);
+  buildPlayer2();
+  $("#battleButton").removeClass("hidden");
 });
+
+$("#battleButton").click(function() {
+  battle();
+});
+
+
+
+
+
+
+

@@ -10,7 +10,7 @@ console.log("Javascript!");
 // Define the range of damage that each weapon can do.
 
 function randomRange(a, b) {
-  return Math.floor(Math.random() * (b - a) + a);
+  return Math.round(Math.random() * (b - a) + a);
 }
 
 function Robot() {
@@ -27,14 +27,14 @@ function Drone() {
 Drone.prototype = new Robot();
 
 function AngryBird() {
-  this.health = randomRange(80, 120);;
+  this.health = randomRange(80, 120);
   this.modification = "";
 }
 
 AngryBird.prototype = new Drone();
 
 function Pegasus() {
-  this.health = randomRange(80, 120);;
+  this.health = randomRange(80, 120);
 }
 
 Pegasus.prototype = new Drone();
@@ -46,12 +46,12 @@ function Bipedal() {
 Bipedal.prototype = new Robot();
 
 function Voltron() {
-  this.health = randomRange(80, 120);;
+  this.health = randomRange(80, 120);
 }
 Voltron.prototype = new Bipedal();
 
 function Cylon () {
-  this.health = randomRange(80, 120);;
+  this.health = randomRange(80, 120);
 }
 Cylon.prototype = new Bipedal();
 
@@ -63,12 +63,12 @@ function ATV() {
 ATV.prototype = new Robot();
 
 function Warthog() {
-  this.health = randomRange(80, 120);;
+  this.health = randomRange(80, 120);
 }
 Warthog.prototype = new ATV();
 
 function KITT() {
-  this.health = randomRange(80, 120);;
+  this.health = randomRange(80, 120);
 }
 KITT.prototype = new ATV();
 
@@ -78,42 +78,42 @@ function Modification() {
 }
 
 function BattleShield () {
-  this.evasion = 0.8;
+  this.evasion = 0.1;
   this.damage = 1;
   this.protection = 1.5;
 }
 BattleShield.prototype = new Modification();
 
 function Spikes () {
-  this.evasion = 0.8;
+  this.evasion = 0.2;
   this.damage = 1;
   this.protection = 1.5;
 }
 Spikes.prototype = new Modification();
 
 function Sparkles () {
-  this.evasion = 0.8;
+  this.evasion = 0.4;
   this.damage = 1;
   this.protection = 1.5;
 }
 Sparkles.prototype = new Modification();
 
 function Cloak () {
-  this.evasion = 0.8;
+  this.evasion = 0.4;
   this.damage = 1;
   this.protection = 1.5;
 }
 Cloak.prototype = new Modification();
 
 function Tiara () {
-  this.evasion = 0.8;
+  this.evasion = 0.2;
   this.damage = 1;
   this.protection = 1.5;
 }
 Tiara.prototype = new Modification();
 
 function Armor () {
-  this.evasion = 0.8;
+  this.evasion = 0.1;
   this.damage = 1;
   this.protection = 1.5;
 }
