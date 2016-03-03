@@ -86,36 +86,36 @@ BattleShield.prototype = new Modification();
 
 function Spikes () {
   this.evasion = 0.2;
-  this.damage = 1;
+  this.damage = 1.6;
   this.protection = 1.5;
 }
 Spikes.prototype = new Modification();
 
 function Sparkles () {
   this.evasion = 0.4;
-  this.damage = 1;
-  this.protection = 1.5;
+  this.damage = 1.3;
+  this.protection = 1.2;
 }
 Sparkles.prototype = new Modification();
 
 function Cloak () {
   this.evasion = 0.4;
   this.damage = 1;
-  this.protection = 1.5;
+  this.protection = 1.1;
 }
 Cloak.prototype = new Modification();
 
 function Tiara () {
   this.evasion = 0.2;
   this.damage = 1;
-  this.protection = 1.5;
+  this.protection = 1.1;
 }
 Tiara.prototype = new Modification();
 
 function Armor () {
   this.evasion = 0.1;
   this.damage = 1;
-  this.protection = 1.5;
+  this.protection = 1.4;
 }
 Armor.prototype = new Modification();
 
@@ -125,27 +125,27 @@ function Weapon() {
 }
 
 function Spoon() {
-  this.damage = randomRange(5, 20);
+  this.damage = randomRange(15, 20);
 }
 Spoon.prototype = new Weapon();
 
 function Wand() {
-  this.damage = randomRange(5, 20);
+  this.damage = randomRange(5, 30);
 }
 Wand.prototype = new Weapon();
 
 function LightSaber() {
-  this.damage = randomRange(5, 20);
+  this.damage = randomRange(20, 30);
 }
 LightSaber.prototype = new Weapon();
 
 function Scimitar() {
-  this.damage = randomRange(5, 20);
+  this.damage = randomRange(10, 20);
 }
 Scimitar.prototype = new Weapon();
 
 function NailClippers() {
-  this.damage = randomRange(5, 20);
+  this.damage = randomRange(5, 15);
 }
 NailClippers.prototype = new Weapon();
 

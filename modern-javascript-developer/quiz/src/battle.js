@@ -19,8 +19,6 @@ function coinToss() {
 }
 
 function battleRound(attacker, defender) {
-  console.log("attacker.health", attacker.health);
-  console.log("defender.health", defender.health);
   console.log("attacker.weapon.damage", attacker.weapon.damage);
   let actualDamage = attacker.weapon.damage * attacker.modification.damage
   if (evasion(defender.modification.evasion) == true ) {
@@ -47,27 +45,29 @@ function battle() {
       let damage = battleRound(player1Robot, player2Robot);
       player2Health = player2Health - damage;
       $("#output").append("<p>player 1 did " + damage + " damage</p>");
-      $("#output").append("<p> Player 2 Health: " + player2Health + "</p>");
       attacker = 2;
     } else {
       let damage = battleRound(player2Robot, player1Robot);
       player1Health = player1Health - damage;
       $("#output").append("<p>player 2 did " + damage + " damage</p>");
-      $("#output").append("<p> Player 1 Health: " + player1Health + "</p>");
       attacker = 1;
     }
+    $("#output").append("<p> Player 1 Health: " + player1Health + " and Player 2 Health: " + player2Health + "</p>");
     round++;
   }
   /////////
   attack();
   /////////
-  while (player1Health > 0 && player2Health > 0) {
+  $("#roundButton").click(function() {
     attack();
-  }
-  if(player1Health > player2Health) {
-    $("#output").append("<h2>Player One Wins!</h2>")
-  } else {
-    $("#output").append("<h2>Player Two Wins!</h2>")
-  }
+    if (player1Health <= 0 || player2Health <= 0) {
+      $("#roundButton").addClass('hidden');
+      if(player1Health > player2Health) {
+        $("#output").append("<h2>Player One Wins!</h2>")
+      } else {
+        $("#output").append("<h2>Player Two Wins!</h2>")
+      }
+    }
+  });
 }
 

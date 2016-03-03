@@ -86,6 +86,8 @@ $("#confirmPlayerTwo").click(function() {
 });
 
 $("#battleButton").click(function() {
+  $("#battleButton").addClass("hidden");
+  $("#roundButton").removeClass("hidden");
   battle();
 });
 
