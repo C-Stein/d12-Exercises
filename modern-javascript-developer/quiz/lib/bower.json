@@ -1,0 +1,18 @@
+{
+  "name": "lib",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Caitlin Stein <caitlin.teter@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/C-Stein/d12-Exercises",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
