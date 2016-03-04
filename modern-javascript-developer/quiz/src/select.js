@@ -29,6 +29,6 @@ function Modification(e, playerModification) {
 
 let select = {
   RobotType, Weapon, Modification
-}
+};
 
 module.exports = select;

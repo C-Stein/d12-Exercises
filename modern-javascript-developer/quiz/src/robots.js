@@ -22,6 +22,7 @@ function AngryBird() {
 AngryBird.prototype = new Drone();
 
 function Pegasus() {
+  this.type = "pegasus";
   this.health = helper.randomRange(80, 120);
 }
 
@@ -62,6 +63,6 @@ KITT.prototype = new ATV();
 
 let robots = {
   Robot, Drone, AngryBird, Pegasus, Bipedal, Voltron, Cylon, ATV, Warthog, KITT
-}
+};
 
 module.exports = robots;

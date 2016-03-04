@@ -10,199 +10,187 @@ let select = require('./select');
 
 
 
-
 ///Build Players
 
-function buildPlayer1() {
-  switch (player1RobotType) {
+function buildPlayer() {
+  let playerRobot;
+  switch (playerRobotType) {
     case "AngryBird":
-      player1Robot = new robots.AngryBird();
+      playerRobot = new robots.AngryBird();
       break;
     case "Pegasus":
-      player1Robot = new robots.Pegasus();
+      playerRobot = new robots.Pegasus();
       break;
     case "Voltron":
-      player1Robot = new robots.Voltron();
+      playerRobot = new robots.Voltron();
       break;
     case "Cylon":
-      player1Robot = new robots.Cylon();
+      playerRobot = new robots.Cylon();
       break;
     case "Warthog":
-      player1Robot = new robots.Warthog();
+      playerRobot = new robots.Warthog();
       break;
     case "KITT":
-      player1Robot = new robots.KITT();
+      playerRobot = new robots.KITT();
   }
 
-  switch (player1Modification) {
+  switch (playerModification) {
     case "BattleShield":
-      player1Robot.modification = new mods.BattleShield();
+      playerRobot.modification = new mods.BattleShield();
       break;
     case "Spikes":
-      player1Robot.modification = new mods.Spikes();
+      playerRobot.modification = new mods.Spikes();
       break;
     case "Sparkles":
-      player1Robot.modification = new mods.Sparkles();
+      playerRobot.modification = new mods.Sparkles();
       break;
     case "Cloak":
-      player1Robot.modification = new mods.Cloak();
+      playerRobot.modification = new mods.Cloak();
       break;
     case "Tiara":
-      player1Robot.modification = new mods.Tiara();
+      playerRobot.modification = new mods.Tiara();
       break;
     case "Armor":
-      player1Robot.modification = new mods.Armor();
+      playerRobot.modification = new mods.Armor();
       break;
   }
 
-  switch (player1Weapon) {
+  switch (playerWeapon) {
     case "Spoon":
-      player1Robot.weapon = new weapons.Spoon();
+      playerRobot.weapon = new weapons.Spoon();
       break;
     case "Wand":
-      player1Robot.weapon = new weapons.Wand();
+      playerRobot.weapon = new weapons.Wand();
       break;
     case "LightSaber":
-      player1Robot.weapon = new weapons.LightSaber();
+      playerRobot.weapon = new weapons.LightSaber();
       break;
     case "Scimitar":
-      player1Robot.weapon = new weapons.Scimitar();
+      playerRobot.weapon = new weapons.Scimitar();
       break;
     case "NailClippers":
-      player1Robot.weapon = new weapons.NailClippers();
+      playerRobot.weapon = new weapons.NailClippers();
       break;
     case "ProtonPack":
-      player1Robot.weapon = new weapons.ProtonPack();
+      playerRobot.weapon = new weapons.ProtonPack();
       break;
   }
 
-  console.log("player1Robot", player1Robot);
+  console.log("playerRobot", playerRobot);
+  return playerRobot;
 }
 
-function buildPlayer2() {
-  switch (player2RobotType) {
-    case "AngryBird":
-      player2Robot = new robots.AngryBird();
-      break;
-    case "Pegasus":
-      player2Robot = new robots.Pegasus();
-      break;
-    case "Voltron":
-      player2Robot = new robots.Voltron();
-      break;
-    case "Cylon":
-      player2Robot = new robots.Cylon();
-      break;
-    case "Warthog":
-      player2Robot = new robots.Warthog();
-      break;
-    case "KITT":
-      player2Robot = new robots.KITT();
-  }
+// function buildPlayer2() {
+//   switch (player2RobotType) {
+//     case "AngryBird":
+//       player2Robot = new robots.AngryBird();
+//       break;
+//     case "Pegasus":
+//       player2Robot = new robots.Pegasus();
+//       break;
+//     case "Voltron":
+//       player2Robot = new robots.Voltron();
+//       break;
+//     case "Cylon":
+//       player2Robot = new robots.Cylon();
+//       break;
+//     case "Warthog":
+//       player2Robot = new robots.Warthog();
+//       break;
+//     case "KITT":
+//       player2Robot = new robots.KITT();
+//   }
 
-  switch (player2Modification) {
-    case "BattleShield":
-      player2Robot.modification = new mods.BattleShield();
-      break;
-    case "Spikes":
-      player2Robot.modification = new mods.Spikes();
-      break;
-    case "Sparkles":
-      player2Robot.modification = new mods.Sparkles();
-      break;
-    case "Cloak":
-      player2Robot.modification = new mods.Cloak();
-      break;
-    case "Tiara":
-      player2Robot.modification = new mods.Tiara();
-      break;
-    case "Armor":
-      player2Robot.modification = new mods.Armor();
-      break;
-  }
+//   switch (player2Modification) {
+//     case "BattleShield":
+//       player2Robot.modification = new mods.BattleShield();
+//       break;
+//     case "Spikes":
+//       player2Robot.modification = new mods.Spikes();
+//       break;
+//     case "Sparkles":
+//       player2Robot.modification = new mods.Sparkles();
+//       break;
+//     case "Cloak":
+//       player2Robot.modification = new mods.Cloak();
+//       break;
+//     case "Tiara":
+//       player2Robot.modification = new mods.Tiara();
+//       break;
+//     case "Armor":
+//       player2Robot.modification = new mods.Armor();
+//       break;
+//   }
 
-  switch (player2Weapon) {
-    case "Spoon":
-      player2Robot.weapon = new weapons.Spoon();
-      break;
-    case "Wand":
-      player2Robot.weapon = new weapons.Wand();
-      break;
-    case "LightSaber":
-      player2Robot.weapon = new weapons.LightSaber();
-      break;
-    case "Scimitar":
-      player2Robot.weapon = new weapons.Scimitar();
-      break;
-    case "NailClippers":
-      player2Robot.weapon = new weapons.NailClippers();
-      break;
-    case "ProtonPack":
-      player2Robot.weapon = new weapons.ProtonPack();
-      break;
-  }
-  console.log("player2Robot", player2Robot);
-}
+//   switch (player2Weapon) {
+//     case "Spoon":
+//       player2Robot.weapon = new weapons.Spoon();
+//       break;
+//     case "Wand":
+//       player2Robot.weapon = new weapons.Wand();
+//       break;
+//     case "LightSaber":
+//       player2Robot.weapon = new weapons.LightSaber();
+//       break;
+//     case "Scimitar":
+//       player2Robot.weapon = new weapons.Scimitar();
+//       break;
+//     case "NailClippers":
+//       player2Robot.weapon = new weapons.NailClippers();
+//       break;
+//     case "ProtonPack":
+//       player2Robot.weapon = new weapons.ProtonPack();
+//       break;
+//   }
+//   console.log("player2Robot", player2Robot);
+// }
 
 let player1Robot;
 let player2Robot;
-let player1RobotType;
-let player1Weapon;
-let player1Modification;
+let playerRobotType;
+let playerWeapon;
+let playerModification;
 let player2RobotType;
 let player2Weapon;
 let player2Modification;
-let player2 = false;
+// let player2 = false;
 
 
 
 $(".robotType").click(function() {
   let e = $(this);
-  if(player2 === false) {
-    player1RobotType = select.RobotType(e);
-  } else {
-    player2RobotType = select.RobotType(e);
-  }
+    playerRobotType = select.RobotType(e);
 });
 
 $(".weapon").click(function() {
   let e = $(this);
-  if(player2 === false) {
-    player1Weapon = select.Weapon(e);
-  } else {
-    player2Weapon = select.Weapon(e);
-  }
+    playerWeapon = select.Weapon(e);
 });
 
 $(".modification").click(function() {
   let e = $(this);
-  if(player2 === false) {
-    player1Modification = select.Modification(e);
+    playerModification = select.Modification(e);
     $("#confirmPlayerOne").removeClass("hidden");
-  } else {
-    player2Modification = select.Modification(e);
-    $("#confirmPlayerTwo").removeClass("hidden");
-  }
 });
 
 //little extra: add a "name your robot" field
 
 $("#confirmPlayerOne").click(function() {
+  player1Robot = buildPlayer();
   $("#robotTypes, #weapons, #modifications, #confirmPlayerOne").addClass("hidden");
   $("#player1specs")
-  .text("Player One selected a " + player1RobotType + " with " + player1Modification + " and a " + player1Weapon + ".");
+  .text("Player One selected a " + player1Robot.type + " with " + player1Robot.modification + " and a " + player1Robot.weapon + ".");
   $("#player2specs").removeClass("hidden");
-  player2 = true;
+  //player2 = true;
   $("#robotTypes").removeClass("hidden");
   $(".robotType").removeClass("selected");
-  buildPlayer1();
 });
 
 $("#confirmPlayerTwo").click(function() {
+  player2Robot = buildPlayer();
   $("#robotTypes, #weapons, #modifications, #confirmPlayerTwo").addClass("hidden");
   $("#player2specs")
-  .text("Player Two selected a " + player2RobotType + " with " + player2Modification + " and a " + player2Weapon + ".");
-  buildPlayer2();
+  .text("Player Two selected a " + player2Robot.type + " with " + player2Robot.modification + " and a " + player2Robot.weapon + ".");
   $("#battleButton").removeClass("hidden");
 });
 
@@ -249,9 +237,9 @@ function battle() {
     $("#output").append(`<p> Player 1 Health: ${player1Health} and Player 2 Health: ${player2Health}</p>`);
     round++;
   }
-  /////////
+  ///first attack
   attack();
-  /////////
+
   $("#roundButton").click(() => {
     attack();
     if (player1Health <= 0 || player2Health <= 0) {
