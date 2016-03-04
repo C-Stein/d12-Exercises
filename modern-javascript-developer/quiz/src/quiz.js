@@ -2,154 +2,7 @@
 console.log("Javascript!");
 
 let $ = require("../lib/node_modules/jQuery/dist/jquery.min.js");
-let robots = require("./robots");
-let mods = require("./mods");
-let weapons = require("./weapons");
-
-// A base Robot function.
-// Define three robot type functions (e.g. Drone, Bipedal, ATV).
-// Define at least 2 specific robot model functions for each type.
-// Give each robot model a different range of health. For example, one model can have health range of 50-80, and another one will have a range of 60-120. To accomplish this, read about the Math.random() function in JavaScript.
-// Define at least six different modifications and six different weapons that can be added to a robot.
-// Each modification should provide some combination of the following benefits - increased protection, increased damage, or evasion capability (ability to avoid some attacks).
-// Define the range of damage that each weapon can do.
-
-function randomRange(a, b) {
-  return Math.round(Math.random() * (b - a) + a);
-}
-
-///Build Players
-
-function buildPlayer1() {
-  switch (player1RobotType) {
-    case "AngryBird":
-      player1Robot = new robots.AngryBird();
-      break;
-    case "Pegasus":
-      player1Robot = new robots.Pegasus();
-      break;
-    case "Voltron":
-      player1Robot = new robots.Voltron();
-      break;
-    case "Cylon":
-      player1Robot = new robots.Cylon();
-      break;
-    case "Warthog":
-      player1Robot = new robots.Warthog();
-      break;
-    case "KITT":
-      player1Robot = new robots.KITT();
-  }
-
-  switch (player1Modification) {
-    case "BattleShield":
-      player1Robot.modification = new mods.BattleShield();
-      break;
-    case "Spikes":
-      player1Robot.modification = new mods.Spikes();
-      break;
-    case "Sparkles":
-      player1Robot.modification = new mods.Sparkles();
-      break;
-    case "Cloak":
-      player1Robot.modification = new mods.Cloak();
-      break;
-    case "Tiara":
-      player1Robot.modification = new mods.Tiara();
-      break;
-    case "Armor":
-      player1Robot.modification = new mods.Armor();
-      break;
-  }
-
-  switch (player1Weapon) {
-    case "Spoon":
-      player1Robot.weapon = new weapons.Spoon();
-      break;
-    case "Wand":
-      player1Robot.weapon = new weapons.Wand();
-      break;
-    case "LightSaber":
-      player1Robot.weapon = new weapons.LightSaber();
-      break;
-    case "Scimitar":
-      player1Robot.weapon = new weapons.Scimitar();
-      break;
-    case "NailClippers":
-      player1Robot.weapon = new weapons.NailClippers();
-      break;
-    case "ProtonPack":
-      player1Robot.weapon = new weapons.ProtonPack();
-      break;
-  }
-
-  console.log("player1Robot", player1Robot);
-}
-
-function buildPlayer2() {
-  switch (player2RobotType) {
-    case "AngryBird":
-      player2Robot = new AngryBird();
-      break;
-    case "Pegasus":
-      player2Robot = new Pegasus();
-      break;
-    case "Voltron":
-      player2Robot = new Voltron();
-      break;
-    case "Cylon":
-      player2Robot = new Cylon();
-      break;
-    case "Warthog":
-      player2Robot = new Warthog();
-      break;
-    case "KITT":
-      player2Robot = new KITT();
-  }
-
-  switch (player2Modification) {
-    case "BattleShield":
-      player2Robot.modification = new BattleShield();
-      break;
-    case "Spikes":
-      player2Robot.modification = new Spikes();
-      break;
-    case "Sparkles":
-      player2Robot.modification = new Sparkles();
-      break;
-    case "Cloak":
-      player2Robot.modification = new Cloak();
-      break;
-    case "Tiara":
-      player2Robot.modification = new Tiara();
-      break;
-    case "Armor":
-      player2Robot.modification = new Armor();
-      break;
-  }
-
-  switch (player2Weapon) {
-    case "Spoon":
-      player2Robot.weapon = new Spoon();
-      break;
-    case "Wand":
-      player2Robot.weapon = new Wand();
-      break;
-    case "LightSaber":
-      player2Robot.weapon = new LightSaber();
-      break;
-    case "Scimitar":
-      player2Robot.weapon = new Scimitar();
-      break;
-    case "NailClippers":
-      player2Robot.weapon = new NailClippers();
-      break;
-    case "ProtonPack":
-      player2Robot.weapon = new ProtonPack();
-      break;
-  }
-  console.log("player2Robot", player2Robot);
-}
+let players = require.("./players");
 
 let player1Robot;
 let player2Robot;
@@ -225,14 +78,14 @@ $("#confirmPlayerOne").click(function() {
   player2 = true;
   $("#robotTypes").removeClass("hidden");
   $(".robotType").removeClass("selected");
-  buildPlayer1();
+  players.buildPlayer1();
 });
 
 $("#confirmPlayerTwo").click(function() {
   $("#robotTypes, #weapons, #modifications, #confirmPlayerTwo").addClass("hidden");
   $("#player2specs")
   .text("Player Two selected a " + player2RobotType + " with " + player2Modification + " and a " + player2Weapon + ".");
-  buildPlayer2();
+  players.buildPlayer2();
   $("#battleButton").removeClass("hidden");
 });
 
@@ -314,22 +167,6 @@ function battle() {
     }
   });
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
