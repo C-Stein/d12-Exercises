@@ -1,6 +1,11 @@
 "use strict";
 console.log("Javascript!");
 
+let $ = require("../lib/node_modules/jQuery/dist/jquery.min.js");
+let robots = require("./robots");
+let mods = require("./mods");
+let weapons = require("./weapons");
+
 // A base Robot function.
 // Define three robot type functions (e.g. Drone, Bipedal, ATV).
 // Define at least 2 specific robot model functions for each type.
@@ -13,209 +18,68 @@ function randomRange(a, b) {
   return Math.round(Math.random() * (b - a) + a);
 }
 
-function Robot() {
-  this.modification = "";
-  this.weapon = "";
-}
-
-
-///Building Drones///
-function Drone() {
-  this.health = randomRange(80, 120);
-}
-
-Drone.prototype = new Robot();
-
-function AngryBird() {
-  this.health = randomRange(80, 120);
-  this.modification = "";
-}
-
-AngryBird.prototype = new Drone();
-
-function Pegasus() {
-  this.health = randomRange(80, 120);
-}
-
-Pegasus.prototype = new Drone();
-
-///Building Bipedals///
-function Bipedal() {
-
-}
-Bipedal.prototype = new Robot();
-
-function Voltron() {
-  this.health = randomRange(80, 120);
-}
-Voltron.prototype = new Bipedal();
-
-function Cylon () {
-  this.health = randomRange(80, 120);
-}
-Cylon.prototype = new Bipedal();
-
-
-///Building ATVs///
-function ATV() {
-
-}
-ATV.prototype = new Robot();
-
-function Warthog() {
-  this.health = randomRange(80, 120);
-}
-Warthog.prototype = new ATV();
-
-function KITT() {
-  this.health = randomRange(80, 120);
-}
-KITT.prototype = new ATV();
-
-///Building Modifications///
-function Modification() {
-
-}
-
-function BattleShield () {
-  this.evasion = 0.1;
-  this.damage = 1;
-  this.protection = 1.5;
-}
-BattleShield.prototype = new Modification();
-
-function Spikes () {
-  this.evasion = 0.2;
-  this.damage = 1.6;
-  this.protection = 1.5;
-}
-Spikes.prototype = new Modification();
-
-function Sparkles () {
-  this.evasion = 0.4;
-  this.damage = 1.3;
-  this.protection = 1.2;
-}
-Sparkles.prototype = new Modification();
-
-function Cloak () {
-  this.evasion = 0.4;
-  this.damage = 1;
-  this.protection = 1.1;
-}
-Cloak.prototype = new Modification();
-
-function Tiara () {
-  this.evasion = 0.2;
-  this.damage = 1;
-  this.protection = 1.1;
-}
-Tiara.prototype = new Modification();
-
-function Armor () {
-  this.evasion = 0.1;
-  this.damage = 1;
-  this.protection = 1.4;
-}
-Armor.prototype = new Modification();
-
-///Building Weapons
-function Weapon() {
-
-}
-
-function Spoon() {
-  this.damage = randomRange(15, 20);
-}
-Spoon.prototype = new Weapon();
-
-function Wand() {
-  this.damage = randomRange(5, 30);
-}
-Wand.prototype = new Weapon();
-
-function LightSaber() {
-  this.damage = randomRange(20, 30);
-}
-LightSaber.prototype = new Weapon();
-
-function Scimitar() {
-  this.damage = randomRange(10, 20);
-}
-Scimitar.prototype = new Weapon();
-
-function NailClippers() {
-  this.damage = randomRange(5, 15);
-}
-NailClippers.prototype = new Weapon();
-
-function ProtonPack() {
-  this.damage = randomRange(5, 20);
-}
-ProtonPack.prototype = new Weapon();
-
 ///Build Players
 
 function buildPlayer1() {
   switch (player1RobotType) {
     case "AngryBird":
-      player1Robot = new AngryBird();
+      player1Robot = new robots.AngryBird();
       break;
     case "Pegasus":
-      player1Robot = new Pegasus();
+      player1Robot = new robots.Pegasus();
       break;
     case "Voltron":
-      player1Robot = new Voltron();
+      player1Robot = new robots.Voltron();
       break;
     case "Cylon":
-      player1Robot = new Cylon();
+      player1Robot = new robots.Cylon();
       break;
     case "Warthog":
-      player1Robot = new Warthog();
+      player1Robot = new robots.Warthog();
       break;
     case "KITT":
-      player1Robot = new KITT();
+      player1Robot = new robots.KITT();
   }
 
   switch (player1Modification) {
     case "BattleShield":
-      player1Robot.modification = new BattleShield();
+      player1Robot.modification = new mods.BattleShield();
       break;
     case "Spikes":
-      player1Robot.modification = new Spikes();
+      player1Robot.modification = new mods.Spikes();
       break;
     case "Sparkles":
-      player1Robot.modification = new Sparkles();
+      player1Robot.modification = new mods.Sparkles();
       break;
     case "Cloak":
-      player1Robot.modification = new Cloak();
+      player1Robot.modification = new mods.Cloak();
       break;
     case "Tiara":
-      player1Robot.modification = new Tiara();
+      player1Robot.modification = new mods.Tiara();
       break;
     case "Armor":
-      player1Robot.modification = new Armor();
+      player1Robot.modification = new mods.Armor();
       break;
   }
 
   switch (player1Weapon) {
     case "Spoon":
-      player1Robot.weapon = new Spoon();
+      player1Robot.weapon = new weapons.Spoon();
       break;
     case "Wand":
-      player1Robot.weapon = new Wand();
+      player1Robot.weapon = new weapons.Wand();
       break;
     case "LightSaber":
-      player1Robot.weapon = new LightSaber();
+      player1Robot.weapon = new weapons.LightSaber();
       break;
     case "Scimitar":
-      player1Robot.weapon = new Scimitar();
+      player1Robot.weapon = new weapons.Scimitar();
       break;
     case "NailClippers":
-      player1Robot.weapon = new NailClippers();
+      player1Robot.weapon = new weapons.NailClippers();
       break;
     case "ProtonPack":
-      player1Robot.weapon = new ProtonPack();
+      player1Robot.weapon = new weapons.ProtonPack();
       break;
   }
 
