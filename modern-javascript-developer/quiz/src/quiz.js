@@ -1,84 +1,13 @@
 "use strict";
 console.log("Javascript!");
 
-let $ = require("../lib/node_modules/jQuery/dist/jquery.min.js");
-let robots = require("./robots");
-let mods = require("./mods");
-let weapons = require("./weapons");
-let helper = require('./helper');
-let select = require('./select');
-
-
-
-///Build Players
-
-function buildPlayer() {
-  let playerRobot;
-  switch (playerRobotType) {
-    case "AngryBird":
-      playerRobot = new robots.AngryBird();
-      break;
-    case "Pegasus":
-      playerRobot = new robots.Pegasus();
-      break;
-    case "Voltron":
-      playerRobot = new robots.Voltron();
-      break;
-    case "Cylon":
-      playerRobot = new robots.Cylon();
-      break;
-    case "Warthog":
-      playerRobot = new robots.Warthog();
-      break;
-    case "KITT":
-      playerRobot = new robots.KITT();
-  }
-
-  switch (playerModification) {
-    case "BattleShield":
-      playerRobot.modification = new mods.BattleShield();
-      break;
-    case "Spikes":
-      playerRobot.modification = new mods.Spikes();
-      break;
-    case "Sparkles":
-      playerRobot.modification = new mods.Sparkles();
-      break;
-    case "Cloak":
-      playerRobot.modification = new mods.Cloak();
-      break;
-    case "Tiara":
-      playerRobot.modification = new mods.Tiara();
-      break;
-    case "Armor":
-      playerRobot.modification = new mods.Armor();
-      break;
-  }
-
-  switch (playerWeapon) {
-    case "Spoon":
-      playerRobot.weapon = new weapons.Spoon();
-      break;
-    case "Wand":
-      playerRobot.weapon = new weapons.Wand();
-      break;
-    case "LightSaber":
-      playerRobot.weapon = new weapons.LightSaber();
-      break;
-    case "Scimitar":
-      playerRobot.weapon = new weapons.Scimitar();
-      break;
-    case "NailClippers":
-      playerRobot.weapon = new weapons.NailClippers();
-      break;
-    case "ProtonPack":
-      playerRobot.weapon = new weapons.ProtonPack();
-      break;
-  }
-
-  console.log("playerRobot", playerRobot);
-  return playerRobot;
-}
+const $ = require("../lib/node_modules/jQuery/dist/jquery.min.js");
+const robots = require("./robots");
+const mods = require("./mods");
+const weapons = require("./weapons");
+const helper = require('./helper');
+const select = require('./select');
+const players = require('./players');
 
 let player1Robot;
 let player2Robot;
@@ -110,11 +39,10 @@ $(".modification").click(function() {
 
 //little extra: add a "name your robot" field
 
-<<<<<<< HEAD
   $("#confirmPlayerOne").click(function() {
    if (player2 === false) {
       console.log("confirm player 1");
-      player1Robot = buildPlayer();
+      player1Robot = players.buildPlayer(playerRobotType, playerModification, playerModification);
       $("#robotTypes, #weapons, #modifications, #confirmPlayerOne").addClass("hidden");
       $("#player1specs")
       .text("Player One selected a " + player1Robot.type + " with " + player1Robot.modification.name + " and a " + player1Robot.weapon.name + ".");
@@ -124,7 +52,7 @@ $(".modification").click(function() {
       player2 = true;
     } else {
       console.log("confirm player 2");
-      player2Robot = buildPlayer();
+      player2Robot = players.buildPlayer(playerRobotType, playerModification, playerModification);
       $("#robotTypes, #weapons, #modifications, #confirmPlayerTwo").addClass("hidden");
       $("#player2specs")
       .text("Player Two selected a " + player2Robot.type + " with " + player2Robot.modification.name + " and a " + player2Robot.weapon.name + ".");
@@ -133,27 +61,6 @@ $(".modification").click(function() {
     }
     console.log("player2", player2);
   });
-
-=======
-$("#confirmPlayerOne").click(function() {
-  $("#robotTypes, #weapons, #modifications, #confirmPlayerOne").addClass("hidden");
-  $("#player1specs")
-  .text("Player One selected a " + player1RobotType + " with " + player1Modification + " and a " + player1Weapon + ".");
-  $("#player2specs").removeClass("hidden");
-  player2 = true;
-  $("#robotTypes").removeClass("hidden");
-  $(".robotType").removeClass("selected");
-  players.buildPlayer1();
-});
-
-$("#confirmPlayerTwo").click(function() {
-  $("#robotTypes, #weapons, #modifications, #confirmPlayerTwo").addClass("hidden");
-  $("#player2specs")
-  .text("Player Two selected a " + player2RobotType + " with " + player2Modification + " and a " + player2Weapon + ".");
-  players.buildPlayer2();
-  $("#battleButton").removeClass("hidden");
-});
->>>>>>> 7cc1a001cf9333ee26291a4d9d06d45eb1787c8e
 
 $("#battleButton").click(function() {
   $("#battleButton").addClass("hidden");

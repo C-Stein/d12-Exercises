@@ -4,7 +4,7 @@ let helper = require("./helper");
 
 ///Building weapons
 function Weapon() {
-  his.damage = helper.randomRange(15, 20);
+  this.damage = helper.randomRange(15, 20);
 }
 
 function Spoon() {

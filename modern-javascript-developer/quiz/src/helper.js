@@ -26,6 +26,6 @@ function coinToss() {
 
 let helper = {
   randomRange, evasion, coinToss
-}
+};
 
 module.exports = helper;

@@ -57,6 +57,6 @@ Armor.prototype = new Modification();
 
 let mods = {
   BattleShield, Spikes, Sparkles, Cloak, Tiara, Armor
-}
+};
 
 module.exports = mods;
