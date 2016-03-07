@@ -176,6 +176,8 @@ $(".modification").click(function() {
 //little extra: add a "name your robot" field
 
 $("#confirmPlayerOne").click(function() {
+  // this click function runs twice instead of handing off to the confirm player 2 button =-()
+  console.log("confirm player 1");
   player1Robot = buildPlayer();
   $("#robotTypes, #weapons, #modifications, #confirmPlayerOne").addClass("hidden");
   $("#player1specs")
@@ -187,6 +189,7 @@ $("#confirmPlayerOne").click(function() {
 });
 
 $("#confirmPlayerTwo").click(function() {
+  console.log("confirm player 2");
   player2Robot = buildPlayer();
   $("#robotTypes, #weapons, #modifications, #confirmPlayerTwo").addClass("hidden");
   $("#player2specs")
