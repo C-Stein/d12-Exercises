@@ -110,6 +110,7 @@ $(".modification").click(function() {
 
 //little extra: add a "name your robot" field
 
+<<<<<<< HEAD
   $("#confirmPlayerOne").click(function() {
    if (player2 === false) {
       console.log("confirm player 1");
@@ -133,6 +134,26 @@ $(".modification").click(function() {
     console.log("player2", player2);
   });
 
+=======
+$("#confirmPlayerOne").click(function() {
+  $("#robotTypes, #weapons, #modifications, #confirmPlayerOne").addClass("hidden");
+  $("#player1specs")
+  .text("Player One selected a " + player1RobotType + " with " + player1Modification + " and a " + player1Weapon + ".");
+  $("#player2specs").removeClass("hidden");
+  player2 = true;
+  $("#robotTypes").removeClass("hidden");
+  $(".robotType").removeClass("selected");
+  players.buildPlayer1();
+});
+
+$("#confirmPlayerTwo").click(function() {
+  $("#robotTypes, #weapons, #modifications, #confirmPlayerTwo").addClass("hidden");
+  $("#player2specs")
+  .text("Player Two selected a " + player2RobotType + " with " + player2Modification + " and a " + player2Weapon + ".");
+  players.buildPlayer2();
+  $("#battleButton").removeClass("hidden");
+});
+>>>>>>> 7cc1a001cf9333ee26291a4d9d06d45eb1787c8e
 
 $("#battleButton").click(function() {
   $("#battleButton").addClass("hidden");
@@ -192,11 +213,5 @@ function battle() {
     }
   });
 }
-
-
-
-
-
-
 
 
