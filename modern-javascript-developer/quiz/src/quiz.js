@@ -80,71 +80,6 @@ function buildPlayer() {
   return playerRobot;
 }
 
-// function buildPlayer2() {
-//   switch (player2RobotType) {
-//     case "AngryBird":
-//       player2Robot = new robots.AngryBird();
-//       break;
-//     case "Pegasus":
-//       player2Robot = new robots.Pegasus();
-//       break;
-//     case "Voltron":
-//       player2Robot = new robots.Voltron();
-//       break;
-//     case "Cylon":
-//       player2Robot = new robots.Cylon();
-//       break;
-//     case "Warthog":
-//       player2Robot = new robots.Warthog();
-//       break;
-//     case "KITT":
-//       player2Robot = new robots.KITT();
-//   }
-
-//   switch (player2Modification) {
-//     case "BattleShield":
-//       player2Robot.modification = new mods.BattleShield();
-//       break;
-//     case "Spikes":
-//       player2Robot.modification = new mods.Spikes();
-//       break;
-//     case "Sparkles":
-//       player2Robot.modification = new mods.Sparkles();
-//       break;
-//     case "Cloak":
-//       player2Robot.modification = new mods.Cloak();
-//       break;
-//     case "Tiara":
-//       player2Robot.modification = new mods.Tiara();
-//       break;
-//     case "Armor":
-//       player2Robot.modification = new mods.Armor();
-//       break;
-//   }
-
-//   switch (player2Weapon) {
-//     case "Spoon":
-//       player2Robot.weapon = new weapons.Spoon();
-//       break;
-//     case "Wand":
-//       player2Robot.weapon = new weapons.Wand();
-//       break;
-//     case "LightSaber":
-//       player2Robot.weapon = new weapons.LightSaber();
-//       break;
-//     case "Scimitar":
-//       player2Robot.weapon = new weapons.Scimitar();
-//       break;
-//     case "NailClippers":
-//       player2Robot.weapon = new weapons.NailClippers();
-//       break;
-//     case "ProtonPack":
-//       player2Robot.weapon = new weapons.ProtonPack();
-//       break;
-//   }
-//   console.log("player2Robot", player2Robot);
-// }
-
 let player1Robot;
 let player2Robot;
 let playerRobotType;
@@ -153,7 +88,7 @@ let playerModification;
 let player2RobotType;
 let player2Weapon;
 let player2Modification;
-// let player2 = false;
+let player2 = false;
 
 
 
@@ -175,27 +110,29 @@ $(".modification").click(function() {
 
 //little extra: add a "name your robot" field
 
-$("#confirmPlayerOne").click(function() {
-  // this click function runs twice instead of handing off to the confirm player 2 button =-()
-  console.log("confirm player 1");
-  player1Robot = buildPlayer();
-  $("#robotTypes, #weapons, #modifications, #confirmPlayerOne").addClass("hidden");
-  $("#player1specs")
-  .text("Player One selected a " + player1Robot.type + " with " + player1Robot.modification + " and a " + player1Robot.weapon + ".");
-  $("#player2specs").removeClass("hidden");
-  //player2 = true;
-  $("#robotTypes").removeClass("hidden");
-  $(".robotType").removeClass("selected");
-});
+  $("#confirmPlayerOne").click(function() {
+   if (player2 === false) {
+      console.log("confirm player 1");
+      player1Robot = buildPlayer();
+      $("#robotTypes, #weapons, #modifications, #confirmPlayerOne").addClass("hidden");
+      $("#player1specs")
+      .text("Player One selected a " + player1Robot.type + " with " + player1Robot.modification.name + " and a " + player1Robot.weapon.name + ".");
+      $("#player2specs").removeClass("hidden");
+      $("#robotTypes").removeClass("hidden");
+      $(".robotType").removeClass("selected");
+      player2 = true;
+    } else {
+      console.log("confirm player 2");
+      player2Robot = buildPlayer();
+      $("#robotTypes, #weapons, #modifications, #confirmPlayerTwo").addClass("hidden");
+      $("#player2specs")
+      .text("Player Two selected a " + player2Robot.type + " with " + player2Robot.modification.name + " and a " + player2Robot.weapon.name + ".");
+      $("#battleButton").removeClass("hidden");
+      $("#confirmPlayerOne").addClass("hidden");
+    }
+    console.log("player2", player2);
+  });
 
-$("#confirmPlayerTwo").click(function() {
-  console.log("confirm player 2");
-  player2Robot = buildPlayer();
-  $("#robotTypes, #weapons, #modifications, #confirmPlayerTwo").addClass("hidden");
-  $("#player2specs")
-  .text("Player Two selected a " + player2Robot.type + " with " + player2Robot.modification + " and a " + player2Robot.weapon + ".");
-  $("#battleButton").removeClass("hidden");
-});
 
 $("#battleButton").click(function() {
   $("#battleButton").addClass("hidden");

@@ -15,32 +15,32 @@ function Drone() {
 Drone.prototype = new Robot();
 
 function AngryBird() {
-  this.health = helper.randomRange(80, 120);
-  this.modification = "";
+  this.type = "AngryBird";
+  this.health = this.health + 5;
 }
 
 AngryBird.prototype = new Drone();
 
 function Pegasus() {
   this.type = "pegasus";
-  this.health = helper.randomRange(80, 120);
+  this.health = this.health + 1;
 }
 
 Pegasus.prototype = new Drone();
 
 ///Building Bipedals///
 function Bipedal() {
-
+  this.health = helper.randomRange(80, 120);
 }
 Bipedal.prototype = new Robot();
 
 function Voltron() {
-  this.health = helper.randomRange(80, 120);
+  this.health = this.health + 6;
 }
 Voltron.prototype = new Bipedal();
 
 function Cylon () {
-  this.health = helper.randomRange(80, 120);
+  this.health = this.health + 1;
 }
 Cylon.prototype = new Bipedal();
 
